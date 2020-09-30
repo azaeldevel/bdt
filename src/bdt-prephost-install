@@ -32,6 +32,7 @@ bdt-prephost-user $DATADIR
 
 echo ">>>Moviendo archivos de trabajo."
 sudo cp -r $REPO_ORIGIN_SOURCES $2
+sudo mkdir $2/tools/tmpsys
 sudo cp -r $REPO_ORIGIN_PACKAGES_TMPSYS/* $2/tools/tmpsys
 
 
