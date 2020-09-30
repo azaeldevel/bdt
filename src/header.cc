@@ -19,8 +19,8 @@ namespace bdt
 	}
 	Header::Header()
 	{
-		REPO_ORIGIN_PACKAGES_TMPSYS="/home/azael/develop/lfs/8.4/pkm/tmpsys";
-		REPO_ORIGIN_SOURCES="/home/azael/develop/lfs/8.4/pkm/sources";
+		REPO_ORIGIN_PACKAGES_TMPSYS="/home/azael/develop/bdt/src/tmpsys/8.4";
+		REPO_ORIGIN_SOURCES="/home/azael/develop/bdt/src/sources/8.4";
 		datadir = DATADIRBDT;
 	}
 	const std::string& Header::getdatadir()const
