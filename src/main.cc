@@ -1,14 +1,13 @@
-/* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 4; tab-width: 4 -*-  */
 /*
  * main.cc
  * Copyright (C) 2020 Azael R. <azael.devel@gmail.com>
  * 
- * bdt is free software: you can redistribute it and/or modify it
+ * pkmt is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
  * Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  * 
- * bdt is distributed in the hope that it will be useful, but
+ * pkmt is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details.
@@ -19,9 +18,21 @@
 
 #include <iostream>
 
-int main()
+#include "commands.hh"
+
+int main(int argc, char* argv[])
 {
-	std::cout << "Hello world!" << std::endl;
+	pkmt::ConfigureLFS confglfs;
+	pkmt::Interpret inter(confglfs);
+	try
+	{
+		inter.execute(argc,argv);
+	}
+	catch(std::string msg)
+	{
+		std::cerr << msg << "\n";
+	}
+
 	return 0;
 }
 

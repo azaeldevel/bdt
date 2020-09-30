@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if [  -z "$1" ]
+then
+      echo "Asigne la particion a la variable LFS_PART."
+      exit
+fi
+if [  -z "$2" ]
+then
+      echo "Asigne el directorio para montar en LFS."
+      exit
+fi
+
+
+echo "Usando $1."
+
+if [ ! -z "$(df | grep $1)" ]
+then
+	echo "La particion $1 esta ocupada."
+    	exit
+fi
+
+mkfs -v -t ext4 $1
+
+sudo mount -v -t ext4 $1 $2

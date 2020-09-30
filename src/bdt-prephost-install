@@ -1,0 +1,38 @@
+#!/bin/bash
+set -e
+
+
+if [ ! -d "$2" ]
+then
+      sudo mkdir $2
+fi
+
+echo ">>>Validacion de versiones.."
+bdr-version-check
+
+echo ">>>Particionando disco.."
+echo ">>>Entrando en modo sudo.."
+sudo bdr-prephost-formatdisk $1 $2
+
+
+echo ">>>Descargo paquetes.."
+bdr-prephost-download
+
+echo ">>>Preparando directorio de tools"
+sudo mkdir -v $2/tools
+sudo ln -sv $2/tools /
+
+echo ">>>Creando usuario."
+bdr-prephost-user
+
+echo ">>>Moviendo archivos de trabajo."
+sudo cp -r sources $2
+sudo cp -r tmpsys $2/tools
+sudo cp pkm-prephost $2/tools
+sudo cp prephost-build $2/tools
+sudo cp prephost-sync $2/tools
+sudo cp pkmt $2/tools
+
+echo ">>>Login in lfs"
+su - lfs
+

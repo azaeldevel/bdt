@@ -1,6 +1,3 @@
-## Process this file with automake to produce Makefile.in
-
-## Created by Anjuta
 
 AM_CPPFLAGS = \
 	-DPACKAGE_LOCALE_DIR=\""$(localedir)"\" \
@@ -12,9 +9,12 @@ AM_CFLAGS =\
 	 -g
 
 bin_PROGRAMS = bdt
+dist_bin_SCRIPTS = bdt-prephost-download bdt-prephost-formatdisk bdt-prephost-install bdt-prephost-remove bdt-prephost-sync bdt-prephost-user bdt-version-check
+
 
 bdt_SOURCES = \
-	main.cc
+	main.cc \
+	commands.cc
 
 bdt_LDFLAGS = 
 
