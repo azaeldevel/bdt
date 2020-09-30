@@ -1,29 +1,16 @@
 
-#ifndef PKMT_COMMANDS
-#define PKMT_COMMANDS
+#ifndef BDT_COMMANDS
+#define BDT_COMMANDS
 
+#include "header.hh"
 
-namespace pkmt
+namespace bdt
 {
-struct Configure
-{
-	std::string REPO_ORIGIN_PACKAGES_TMPSYS;
-	std::string REPO_ORIGIN_SOURCES;
 
-	Configure();
-};
-struct ConfigureLFS : public Configure
-{
-	std::string LFS;
-	std::string LFS_PART;
-	std::string LFS_TGT;
-	std::string PKM;
-	ConfigureLFS();
-};
 class Interpret
 {
 private:
-	const Configure* configure;
+	const Header* configure;
 	//
 	void bdt(int argc, char* argv[]);
 	void prephost(int argc, char* argv[]);
@@ -34,7 +21,7 @@ private:
 	void writeParamschar (std::string& argout, int argc, char *argv[]);
 	
 public:
-	Interpret(const Configure& configure);
+	Interpret(const Header& configure);
 	void execute(int argc, char* argv[]);
 };
 

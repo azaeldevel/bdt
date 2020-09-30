@@ -13,3 +13,7 @@ install-sh
 missing
 src/*~
 src/Makefile.in
+compile
+config.guess
+config.sub
+ltmain.sh

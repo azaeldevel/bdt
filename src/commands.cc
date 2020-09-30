@@ -10,29 +10,14 @@
 
 
 
-namespace pkmt
+namespace bdt
 {
 
 
-Configure::Configure()
-{
-	REPO_ORIGIN_PACKAGES_TMPSYS="/home/azael/develop/lfs/8.4/pkm/tmpsys";
-	REPO_ORIGIN_SOURCES="/home/azael/develop/lfs/8.4/pkm/sources";
-}
-ConfigureLFS::ConfigureLFS()
-{
-	LFS="/mnt/lfs";
-	LFS_PART="/dev/sda14";
-	PKM="/home/azael/develop/lfs/8.4/pkm";
-	LFS_TGT="x86_64-lfs-linux-gnu";
-}
 
 
 
-
-
-
-Interpret::Interpret(const Configure& configure)
+Interpret::Interpret(const Header& configure)
 {
 	this->configure = &configure;
 }
@@ -41,7 +26,7 @@ void Interpret::prephost_download(int argc, char* argv[])
 	std::string parms ;
 	writeParamschar(parms,argc,argv);
 	std::string cmd = "bdt-prephost-download ";
-	cmd = cmd + " " + ((ConfigureLFS*)configure)->REPO_ORIGIN_SOURCES ;
+	cmd = cmd + " " + ((HeaderLFS*)configure)->REPO_ORIGIN_SOURCES ;
 	//std::cout << "Ejecutando : "<< cmd << "\n";
 	system (cmd.c_str());
 }
@@ -50,21 +35,21 @@ void Interpret::prephost_sync(int argc, char* argv[])
 	std::string parms ;
 	writeParamschar(parms,argc,argv);
 	std::string cmd = "bdt-prephost-sync ";
-	cmd = cmd + " " + ((ConfigureLFS*)configure)->REPO_ORIGIN_PACKAGES_TMPSYS + " " + ((ConfigureLFS*)configure)->LFS + " " + ((ConfigureLFS*)configure)->PKM ;
+	cmd = cmd + " " + ((HeaderLFS*)configure)->REPO_ORIGIN_PACKAGES_TMPSYS + " " + ((HeaderLFS*)configure)->LFS + " " + ((HeaderLFS*)configure)->PKM ;
 	//std::cout << "Ejecutando : "<< cmd << "\n";
 	system (cmd.c_str());
 }
 void Interpret::prephost_remove(int argc, char* argv[])
 {
 	std::string cmd = "bdt-prephost-remove ";
-	cmd = cmd + " " + ((ConfigureLFS*)configure)->LFS_PART + " " + ((ConfigureLFS*)configure)->LFS;
+	cmd = cmd + " " + ((HeaderLFS*)configure)->LFS_PART + " " + ((HeaderLFS*)configure)->LFS;
 	//std::cout << "Ejecutando : "<< cmd << "\n";
 	system (cmd.c_str());
 }
 void Interpret::prephost_install(int argc, char* argv[])
 {
 	std::string cmd = "bdt-prephost-install ";
-	cmd = cmd + " " + ((ConfigureLFS*)configure)->LFS_PART + " " + ((ConfigureLFS*)configure)->LFS;
+	cmd = cmd + " " + ((HeaderLFS*)configure)->LFS_PART + " " + ((HeaderLFS*)configure)->LFS;
 	//std::cout << "Ejecutando : "<< cmd << "\n";
 	system (cmd.c_str());
 }

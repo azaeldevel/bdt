@@ -1,0 +1,13 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+datarootdir=@datarootdir@
+datadir=@datadir@
+includedir=@prefix@/include
+
+Name: bdt
+Description: Configuraion information from Builder Tool
+Version: @VERSION@
+Requires: octetos-core
+Libs: -L${libdir} -lbdt
+Cflags: -I${includedir}
