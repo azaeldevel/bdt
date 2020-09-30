@@ -25,13 +25,13 @@ void Interpret::prephost_download(int argc, char* argv[])
 {
 	std::string cmd = "bdt-prephost-download ";
 	cmd = cmd + (((HeaderLFS*)header)->getREPO_ORIGIN_SOURCES()) ;
-	//std::cout << "Ejecutando : "<< cmd << "\n";
+	std::cout << "Ejecutando : "<< cmd << "\n";
 	system (cmd.c_str());
 }
 void Interpret::prephost_sync(int argc, char* argv[])
 {
 	std::string cmd = "bdt-prephost-sync ";
-	cmd = cmd + " " + (((HeaderLFS*)header)->getREPO_ORIGIN_PACKAGES_TMPSYS()) + " " + (((HeaderLFS*)header)->getLFS()) + " " + (((HeaderLFS*)header)->getPKM()) ;
+	cmd = cmd + (((HeaderLFS*)header)->getREPO_ORIGIN_PACKAGES_TMPSYS()) + " " + (((HeaderLFS*)header)->getLFS()) + " " + (((HeaderLFS*)header)->getPKM()) ;
 	//std::cout << "Ejecutando : "<< cmd << "\n";
 	system (cmd.c_str());
 }
@@ -45,7 +45,7 @@ void Interpret::prephost_remove(int argc, char* argv[])
 void Interpret::prephost_install(int argc, char* argv[])
 {
 	std::string cmd = "bdt-prephost-install ";
-	cmd = cmd + (((HeaderLFS*)header)->getLFS_PART()) + " " + (((HeaderLFS*)header)->getLFS());
+	cmd = cmd + (((HeaderLFS*)header)->getLFS_PART()) + " " + (((HeaderLFS*)header)->getLFS()) + " " + (((HeaderLFS*)header)->getREPO_ORIGIN_SOURCES());
 	//std::cout << "Ejecutando : "<< cmd << "\n";
 	system (cmd.c_str());
 }

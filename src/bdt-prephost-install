@@ -16,7 +16,7 @@ sudo bdt-prephost-formatdisk $1 $2
 
 
 echo ">>>Descargo paquetes.."
-bdt-prephost-download
+bdt-prephost-download $3
 
 echo ">>>Preparando directorio de tools"
 sudo mkdir -v $2/tools
