@@ -1,5 +1,5 @@
 
-AC_INIT(bdt, 0.1.0, azael.devel@gmail.com)
+AC_INIT(bdt, 0.1.1, azael.devel@gmail.com)
 
 AC_CONFIG_HEADERS([config.h])
 
@@ -18,7 +18,7 @@ AC_PROG_LIBTOOL
 
 
 
-
+PKG_CHECK_MODULES(OCTETOS_CORE,octetos-core)
 
 
 
