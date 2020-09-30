@@ -3,6 +3,8 @@
 
 
 #include "header.hh"
+#include "config.h"
+
 
 namespace bdt
 {
@@ -19,11 +21,16 @@ namespace bdt
 	{
 		REPO_ORIGIN_PACKAGES_TMPSYS="/home/azael/develop/lfs/8.4/pkm/tmpsys";
 		REPO_ORIGIN_SOURCES="/home/azael/develop/lfs/8.4/pkm/sources";
+		datadir = DATADIRBDT;
+	}
+	const std::string& Header::getdatadir()const
+	{
+		return datadir;
 	}
 
 
 
-
+	
 	const std::string& HeaderLFS::getLFS()const
 	{
 		return LFS;

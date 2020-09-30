@@ -1,6 +1,10 @@
 #!/bin/bash
 set -e
 
+LFS_PART=$1
+LFS=$2
+REPO_ORIGIN_SOURCES=$3
+DATADIR=$4
 
 if [ ! -d "$2" ]
 then
@@ -23,7 +27,7 @@ sudo mkdir -v $2/tools
 sudo ln -sv $2/tools /
 
 echo ">>>Creando usuario."
-bdt-prephost-user
+bdt-prephost-user $DATADIR
 
 echo ">>>Moviendo archivos de trabajo."
 sudo cp -r sources $2

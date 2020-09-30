@@ -12,11 +12,13 @@ class Header
 private:
 	std::string REPO_ORIGIN_PACKAGES_TMPSYS;
 	std::string REPO_ORIGIN_SOURCES;
+	std::string datadir;
 
 public:	
 	Header();
 	const std::string& getREPO_ORIGIN_SOURCES()const;
 	const std::string& getREPO_ORIGIN_PACKAGES_TMPSYS()const;
+	const std::string& getdatadir()const;
 };
 class HeaderLFS : public Header
 {

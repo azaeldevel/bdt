@@ -7,9 +7,9 @@ if id "lfs" >/dev/null 2>&1; then
 else
     	sudo groupadd lfs
     	sudo useradd -s /bin/bash -g lfs -m -k /dev/null lfs
-    	sudo cp bash_profile /home/lfs/.bash_profile
+    	sudo cp $1/bash_profile /home/lfs/.bash_profile
     	sudo chown lfs:lfs /home/lfs/.bash_profile
-    	sudo cp bashrc /home/lfs/.bashrc
+    	sudo cp $1/bashrc /home/lfs/.bashrc
     	sudo chown lfs:lfs /home/lfs/.bashrc
     	echo "Introduca la contraseña para el numevo usuario 'lfs'"    
     	sudo passwd lfs

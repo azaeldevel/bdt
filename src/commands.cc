@@ -45,7 +45,7 @@ void Interpret::prephost_remove(int argc, char* argv[])
 void Interpret::prephost_install(int argc, char* argv[])
 {
 	std::string cmd = "bdt-prephost-install ";
-	cmd = cmd + (((HeaderLFS*)header)->getLFS_PART()) + " " + (((HeaderLFS*)header)->getLFS()) + " " + (((HeaderLFS*)header)->getREPO_ORIGIN_SOURCES());
+	cmd = cmd + (((HeaderLFS*)header)->getLFS_PART()) + " " + (((HeaderLFS*)header)->getLFS()) + " " + (((HeaderLFS*)header)->getREPO_ORIGIN_SOURCES()) + " " + ((HeaderLFS*)header)->getdatadir();
 	//std::cout << "Ejecutando : "<< cmd << "\n";
 	system (cmd.c_str());
 }

@@ -1,5 +1,5 @@
 
-AC_INIT(bdt, 0.1.0-alpha8, azael.devel@gmail.com)
+AC_INIT(bdt, 0.1.0-alpha9, azael.devel@gmail.com)
 
 AC_CONFIG_HEADERS([config.h])
 
@@ -20,7 +20,8 @@ AC_PROG_LIBTOOL
 
 PKG_CHECK_MODULES(OCTETOS_CORE,octetos-core)
 
-
+#AC_DEFINE_UNQUOTED([DATADIR], ["$datadir"],[Define to the read-only architecture-independent data directory.])
+AC_DEFINE_UNQUOTED([DATADIRBDT], ["$datadir/bdt"],[Define to the read-only architecture-independent data directory.])
 
 
 
