@@ -5,6 +5,7 @@ LFS_PART=$1
 LFS=$2
 REPO_ORIGIN_SOURCES=$3
 DATADIR=$4
+REPO_ORIGIN_PACKAGES_TMPSYS=$5
 
 if [ ! -d "$2" ]
 then
@@ -31,7 +32,7 @@ bdt-prephost-user $DATADIR
 
 echo ">>>Moviendo archivos de trabajo."
 sudo cp -r $REPO_ORIGIN_SOURCES $2
-sudo cp -r tmpsys $2/tools
+sudo cp -r $REPO_ORIGIN_PACKAGES_TMPSYS $2/tools
 
 
 echo ">>>Login in lfs"
