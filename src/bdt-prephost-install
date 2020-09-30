@@ -30,12 +30,9 @@ echo ">>>Creando usuario."
 bdt-prephost-user $DATADIR
 
 echo ">>>Moviendo archivos de trabajo."
-sudo cp -r sources $2
+sudo cp -r $REPO_ORIGIN_SOURCES $2
 sudo cp -r tmpsys $2/tools
-sudo cp pkm-prephost $2/tools
-sudo cp prephost-build $2/tools
-sudo cp prephost-sync $2/tools
-sudo cp pkmt $2/tools
+
 
 echo ">>>Login in lfs"
 su - lfs

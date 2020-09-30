@@ -2,9 +2,5 @@
 set -e
 
 sudo cp -f $1/* $2/tools/tmpsys/
-sudo cp -f $3/pkm-prephost $2/tools
-sudo cp -f $3/prephost-sync $2/tools
-sudo cp -f $3/prephost-build $2/tools
-sudo cp pkmt $2/tools
 
 echo "sichronized repo $3 .."
