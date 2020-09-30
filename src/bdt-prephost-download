@@ -12,5 +12,5 @@ if [ ! -d "$1" ]; then
 		popd
 	fi
 else
-	echo ">>>Usuando repositorio local $1 .."
+	echo ">>>Usuando repositorio local '$1' .."
 fi

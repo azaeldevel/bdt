@@ -17,39 +17,35 @@ namespace bdt
 
 
 
-Interpret::Interpret(const Header& configure)
+Interpret::Interpret(const Header& header)
 {
-	this->configure = &configure;
+	this->header = &header;
 }
 void Interpret::prephost_download(int argc, char* argv[])
 {
-	std::string parms ;
-	writeParamschar(parms,argc,argv);
 	std::string cmd = "bdt-prephost-download ";
-	cmd = cmd + " " + ((HeaderLFS*)configure)->REPO_ORIGIN_SOURCES ;
-	//std::cout << "Ejecutando : "<< cmd << "\n";
+	cmd = cmd + " " + (((HeaderLFS*)header)->getREPO_ORIGIN_SOURCES()) ;
+	std::cout << "Ejecutando : "<< cmd << "\n";
 	system (cmd.c_str());
 }
 void Interpret::prephost_sync(int argc, char* argv[])
 {
-	std::string parms ;
-	writeParamschar(parms,argc,argv);
 	std::string cmd = "bdt-prephost-sync ";
-	cmd = cmd + " " + ((HeaderLFS*)configure)->REPO_ORIGIN_PACKAGES_TMPSYS + " " + ((HeaderLFS*)configure)->LFS + " " + ((HeaderLFS*)configure)->PKM ;
+	cmd = cmd + " " + (((HeaderLFS*)header)->getREPO_ORIGIN_PACKAGES_TMPSYS()) + " " + (((HeaderLFS*)header)->getLFS()) + " " + (((HeaderLFS*)header)->getPKM()) ;
 	//std::cout << "Ejecutando : "<< cmd << "\n";
 	system (cmd.c_str());
 }
 void Interpret::prephost_remove(int argc, char* argv[])
 {
 	std::string cmd = "bdt-prephost-remove ";
-	cmd = cmd + " " + ((HeaderLFS*)configure)->LFS_PART + " " + ((HeaderLFS*)configure)->LFS;
+	cmd = cmd + " " + (((HeaderLFS*)header)->getLFS_PART()) + " " + (((HeaderLFS*)header)->getLFS());
 	//std::cout << "Ejecutando : "<< cmd << "\n";
 	system (cmd.c_str());
 }
 void Interpret::prephost_install(int argc, char* argv[])
 {
 	std::string cmd = "bdt-prephost-install ";
-	cmd = cmd + " " + ((HeaderLFS*)configure)->LFS_PART + " " + ((HeaderLFS*)configure)->LFS;
+	cmd = cmd + " " + (((HeaderLFS*)header)->getLFS_PART()) + " " + (((HeaderLFS*)header)->getLFS());
 	//std::cout << "Ejecutando : "<< cmd << "\n";
 	system (cmd.c_str());
 }

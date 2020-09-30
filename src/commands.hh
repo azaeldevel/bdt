@@ -10,7 +10,7 @@ namespace bdt
 class Interpret
 {
 private:
-	const Header* configure;
+	const Header* header;
 	//
 	void bdt(int argc, char* argv[]);
 	void prephost(int argc, char* argv[]);
