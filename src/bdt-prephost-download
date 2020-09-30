@@ -3,6 +3,7 @@ set -e
 
 
 if [ ! -d "$1" ]; then
+	echo ">>>No existe '$1', iniciandio descarga de la web .."
 	wget --input-file=wget-list --continue --directory-prefix=$SOURCES
 	if [ ! -f "$1/md5sums" ]; then
 		cp md5sums $1
@@ -10,4 +11,6 @@ if [ ! -d "$1" ]; then
 		md5sum -c md5sums >> md5sums-log
 		popd
 	fi
+else
+	echo ">>>Usuando repositorio local $1 .."
 fi
