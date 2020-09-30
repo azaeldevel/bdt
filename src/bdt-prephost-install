@@ -8,22 +8,22 @@ then
 fi
 
 echo ">>>Validacion de versiones.."
-bdr-version-check
+bdt-version-check
 
 echo ">>>Particionando disco.."
 echo ">>>Entrando en modo sudo.."
-sudo bdr-prephost-formatdisk $1 $2
+sudo bdt-prephost-formatdisk $1 $2
 
 
 echo ">>>Descargo paquetes.."
-bdr-prephost-download
+bdt-prephost-download
 
 echo ">>>Preparando directorio de tools"
 sudo mkdir -v $2/tools
 sudo ln -sv $2/tools /
 
 echo ">>>Creando usuario."
-bdr-prephost-user
+bdt-prephost-user
 
 echo ">>>Moviendo archivos de trabajo."
 sudo cp -r sources $2
