@@ -38,4 +38,7 @@ bdt_include_HEADERS = header.hh
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = bdt.pc
 
-EXTRA_DIST = bdt.pc.in
+bdtdir = $(datadir)/bdt
+bdt_DATA = bash_profile bashrc md5sums wget-list
+
+EXTRA_DIST = bdt.pc.in bash_profile bashrc md5sums wget-list
