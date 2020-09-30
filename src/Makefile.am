@@ -14,7 +14,7 @@ lib_LTLIBRARIES = libbdt.la
 
 bin_PROGRAMS = bdt
 
-bin_SCRIPTS = bdt-prephost-download bdt-prephost-formatdisk bdt-prephost-install bdt-prephost-remove bdt-prephost-sync bdt-prephost-user bdt-version-check
+dist_bin_SCRIPTS = bdt-prephost-download bdt-prephost-formatdisk bdt-prephost-install bdt-prephost-remove bdt-prephost-sync bdt-prephost-user bdt-version-check
 
 
 
