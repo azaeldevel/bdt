@@ -19,17 +19,16 @@ dist_bin_SCRIPTS = bdt-prephost-download bdt-prephost-formatdisk bdt-prephost-in
 
 
 libbdt_la_SOURCES = header.cc
-
+libbdt_la_LIBADD = $(OCTETOS_CORE_LIBS)
+libbdt_la_CPPFLAGS = $(OCTETOS_CORE_CFLAGS)
 
 
 bdt_SOURCES = \
 	main.cc \
 	commands.cc 
-
 bdt_LDFLAGS = 
-
-bdt_LDADD = libbdt.la
-
+bdt_LDADD = $(OCTETOS_CORE_LIBS) libbdt.la 
+bdt_CPPFLAGS = $(OCTETOS_CORE_CFLAGS)
 
 
 bdt_includedir = $(includedir)/bdt

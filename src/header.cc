@@ -53,6 +53,7 @@ namespace bdt
 		LFS_PART="/dev/sda14";
 		PKM="/home/azael/develop/lfs/8.4/pkm";
 		LFS_TGT="x86_64-lfs-linux-gnu";
+		ver.setNumbers(8,4);
 	}
 
 }

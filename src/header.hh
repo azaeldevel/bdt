@@ -3,6 +3,8 @@
 #define BDT_HEADER
 
 #include <string>
+#include <octetos/core/Version.hh>
+
 
 namespace bdt
 {
@@ -27,6 +29,7 @@ private:
 	std::string LFS_PART;
 	std::string LFS_TGT;
 	std::string PKM;
+	octetos::core::Semver ver;
 public:
 	HeaderLFS();
 	const std::string& getLFS()const;
