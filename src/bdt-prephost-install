@@ -17,7 +17,7 @@ bdt-version-check
 
 echo ">>>Particionando disco.."
 echo ">>>Entrando en modo sudo.."
-sudo bdt-prephost-formatdisk $1 $2
+bdt-prephost-formatdisk $1 $2
 
 
 echo ">>>Descargo paquetes.."

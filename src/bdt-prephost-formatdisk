@@ -22,4 +22,4 @@ fi
 
 mkfs -v -t ext4 $1
 
-sudo mount -v -t ext4 $1 $2
+mount -v -t ext4 $1 $2
