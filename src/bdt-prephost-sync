@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
 
-sudo cp -f $1/* $2/tools/tmpsys/
+cp -f $1/* $2/tools/tmpsys/
 
 echo "sichronized repo $3 .."

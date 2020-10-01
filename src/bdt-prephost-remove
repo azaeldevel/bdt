@@ -5,34 +5,34 @@ set -e
 if [ ! -z "$(df | grep $1)" ]
 then
     echo ">>>Desmontando $1."
-    sudo umount $1
+    umount $1
 fi
 
 if [ ! -d "$2" ]
 then
-      sudo rm -r $2
+      rm -r $2
 fi
 
 
 if id "lfs" >/dev/null 2>&1; then
-    	sudo userdel lfs
+    	userdel lfs
 fi
 if grep -q "lfs" /etc/group; then
-	sudo groupdel lfs	
+	groupdel lfs	
 fi
 if [ -d "/home/lfs" ] ;then
-	sudo rm -r /home/lfs
+	rm -r /home/lfs
 fi
 
 if [ -L "/tools" ]
 then
-      	sudo unlink /tools
+      	unlink /tools
 fi
 if [ -d "$2/tools" ]
 then
-      	sudo rm -r $2/tools
+      	rm -r $2/tools
 fi
 if [ -d "$2/sources" ]
 then
-      	sudo rm -r $2/sources
+      	rm -r $2/sources
 fi

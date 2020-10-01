@@ -9,7 +9,7 @@ REPO_ORIGIN_PACKAGES_TMPSYS=$5
 
 if [ ! -d "$2" ]
 then
-      sudo mkdir $2
+      mkdir $2
 fi
 
 echo ">>>Validacion de versiones.."
@@ -24,17 +24,17 @@ echo ">>>Descargo paquetes.."
 bdt-prephost-download $3
 
 echo ">>>Preparando directorio de tools"
-sudo mkdir -v $2/tools
-sudo ln -sv $2/tools /
+mkdir -v $2/tools
+ln -sv $2/tools /
 
 echo ">>>Creando usuario."
 bdt-prephost-user $DATADIR
 
 echo ">>>Moviendo archivos de trabajo."
-sudo mkdir $2/tools/sources
-sudo cp -r $REPO_ORIGIN_SOURCES/* $2/tools/sources/
-sudo mkdir $2/tools/tmpsys
-sudo cp -r $REPO_ORIGIN_PACKAGES_TMPSYS/* $2/tools/tmpsys
+mkdir $2/tools/sources
+cp -r $REPO_ORIGIN_SOURCES/* $2/tools/sources/
+mkdir $2/tools/tmpsys
+cp -r $REPO_ORIGIN_PACKAGES_TMPSYS/* $2/tools/tmpsys
 
 
 echo ">>>Login in lfs"
