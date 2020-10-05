@@ -6,6 +6,7 @@ LFS=$2
 REPO_ORIGIN_SOURCES=$3
 DATADIR=$4
 REPO_ORIGIN_PACKAGES_TMPSYS=$5
+LFS_VER=$6
 
 if [ ! -d "$2" ]
 then
@@ -13,7 +14,11 @@ then
 fi
 
 echo ">>>Validacion de versiones.."
-bdt-version-check
+if [ "$LFS_VER" == "8.4"] then
+bdt-version-check-8.4
+else if [ "$LFS_VER" == "8.4"] then
+bdt-version-check-10.0
+fi
 
 echo ">>>Particionando disco.."
 echo ">>>Entrando en modo sudo.."
@@ -21,7 +26,7 @@ bdt-prephost-formatdisk $1 $2
 
 
 echo ">>>Descargo paquetes.."
-bdt-prephost-download $3
+#bdt-prephost-download $3 
 
 echo ">>>Preparando directorio de tools"
 mkdir -v $2/tools

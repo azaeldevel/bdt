@@ -14,7 +14,9 @@ lib_LTLIBRARIES = libbdt.la
 
 bin_PROGRAMS = bdt
 
-dist_bin_SCRIPTS = bdt-prephost-download bdt-prephost-formatdisk bdt-prephost-install bdt-prephost-remove bdt-prephost-sync bdt-prephost-user bdt-version-check
+dist_bin_SCRIPTS = bdt-prephost-download bdt-prephost-formatdisk \
+		bdt-prephost-install bdt-prephost-remove bdt-prephost-sync \
+		bdt-prephost-user bdt-version-check-8.4 bdt-version-check-10.0
 
 
 
@@ -38,6 +40,6 @@ pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = bdt.pc
 
 bdtdir = $(datadir)/bdt
-bdt_DATA = bash_profile bashrc md5sums wget-list
+bdt_DATA = bash_profile bashrc 
 
-EXTRA_DIST = bdt.pc.in bash_profile bashrc md5sums wget-list
+EXTRA_DIST = bdt.pc.in bash_profile bashrc
