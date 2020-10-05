@@ -14,9 +14,9 @@ then
 fi
 
 echo ">>>Validacion de versiones.."
-if [ "$LFS_VER" == "8.4"]; then
+if [ "$LFS_VER" = "8.4"]; then
 	bdt-version-check-8.4
-elif [ "$LFS_VER" == "8.4"]; then
+elif [ "$LFS_VER" = "8.4"]; then
 	bdt-version-check-10.0
 fi
 
@@ -37,10 +37,10 @@ bdt-prephost-user $DATADIR
 
 echo ">>>Moviendo archivos de trabajo."
 mkdir $2/tools/sources
-cp -r $REPO_ORIGIN_SOURCES/* $2/tools/sources/
-chmod -v a+wt $2/tools/sources/
+#cp -r $REPO_ORIGIN_SOURCES/* $2/tools/sources/
+#chmod -v a+wt $2/tools/sources/
 mkdir $2/tools/tmpsys
-cp -r $REPO_ORIGIN_PACKAGES_TMPSYS/* $2/tools/tmpsys
+#cp -r $REPO_ORIGIN_PACKAGES_TMPSYS/* $2/tools/tmpsys
 
 
 echo ">>>Login in lfs"
