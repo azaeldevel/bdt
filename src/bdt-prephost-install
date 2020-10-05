@@ -14,10 +14,10 @@ then
 fi
 
 echo ">>>Validacion de versiones.."
-if [ "$LFS_VER" == "8.4"] then
-bdt-version-check-8.4
-else if [ "$LFS_VER" == "8.4"] then
-bdt-version-check-10.0
+if [ "$LFS_VER" == "8.4"]; then
+	bdt-version-check-8.4
+elif [ "$LFS_VER" == "8.4"]; then
+	bdt-version-check-10.0
 fi
 
 echo ">>>Particionando disco.."
