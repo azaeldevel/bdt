@@ -29,7 +29,10 @@ namespace bdt
 
 
 
-	
+	const octetos::core::Semver& HeaderLFS::getVersion()const
+	{
+		return version;
+	}
 	const std::string HeaderLFS::getREPO_SOURCES()const
 	{
 		std::string str = REPO_SOURCES + version.toString();

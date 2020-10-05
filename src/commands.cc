@@ -49,7 +49,7 @@ int LFS::remove(int argc, char* argv[])
 int LFS::install(int argc, char* argv[])
 {
 	std::string cmd = "bdt-prephost-install ";
-	cmd = cmd + (((HeaderLFS*)header)->getLFS_PART()) + " " + (((HeaderLFS*)header)->getLFS()) + " " + (((HeaderLFS*)header)->getREPO_SOURCES()) + " " + ((HeaderLFS*)header)->getdatadir() + " " + (((HeaderLFS*)header)->getREPO_ORIGIN_PACKAGES_TMPSYS());
+	cmd = cmd + (((HeaderLFS*)header)->getLFS_PART()) + " " + (((HeaderLFS*)header)->getLFS()) + " " + (((HeaderLFS*)header)->getREPO_SOURCES()) + " " + ((HeaderLFS*)header)->getdatadir() + " " + (((HeaderLFS*)header)->getREPO_ORIGIN_PACKAGES_TMPSYS())  + " " + (((HeaderLFS*)header)->getVersion()).toString();
 	//std::cout << "Ejecutando : "<< cmd << "\n";
 	return system (cmd.c_str());
 }

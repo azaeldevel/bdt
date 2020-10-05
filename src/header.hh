@@ -40,6 +40,7 @@ public:
 	const std::string& getLFS() const;
 	const std::string& getLFS_PART() const;
 	const std::string& getLFS_TGT() const;
+	const octetos::core::Semver& getVersion()const;
 };
 
 }
