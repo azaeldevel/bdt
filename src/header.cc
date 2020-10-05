@@ -28,7 +28,10 @@ namespace bdt
 
 
 
-
+	void HeaderLFS::setVersion(octetos::core::Semver& v)
+	{
+		version = v;
+	}
 	const octetos::core::Semver& HeaderLFS::getVersion()const
 	{
 		return version;
@@ -70,7 +73,6 @@ namespace bdt
 		datadir = DATADIRBDT;
 		LFS="/mnt/lfs";
 		LFS_PART="/dev/sda14";
-		//PKM="/home/azael/develop/lfs/8.4/pkm";
 		LFS_TGT="x86_64-lfs-linux-gnu";
 	}
 	HeaderLFS::HeaderLFS(const octetos::core::Semver& v)
@@ -84,7 +86,6 @@ namespace bdt
 		datadir = DATADIRBDT;
 		LFS="/mnt/lfs";
 		LFS_PART="/dev/sda14";
-		//PKM="/home/azael/develop/lfs/8.4/pkm";
 		LFS_TGT="x86_64-lfs-linux-gnu";
 		
 	}

@@ -48,8 +48,30 @@ int LFS::remove(int argc, char* argv[])
 }
 int LFS::install(int argc, char* argv[])
 {
-	std::string cmd = "bdt-prephost-install ";
-	cmd = cmd + (((HeaderLFS*)header)->getLFS_PART()) + " " + (((HeaderLFS*)header)->getLFS()) + " " + (((HeaderLFS*)header)->getREPO_SOURCES()) + " " + ((HeaderLFS*)header)->getdatadir() + " " + (((HeaderLFS*)header)->getREPO_ORIGIN_PACKAGES_TMPSYS())  + " " + (((HeaderLFS*)header)->getVersion()).toString();
+	std::string cmd;
+	#ifdef DEBUG
+	cmd = "./src/bdt-prephost-install ";
+	#else
+	cmd = "bdt-prephost-install ";
+	#endif
+	octetos::core::Semver ver;
+	if(argc > 1)
+	{
+		if(strcmp(argv[0],"--version") == 0)
+		{
+			ver.set(argv[1]);
+			((HeaderLFS*)header)->setVersion(ver);
+		}
+	}
+	cmd = cmd + (((HeaderLFS*)header)->getLFS_PART()) + " " + (((HeaderLFS*)header)->getLFS()) + " " + (((HeaderLFS*)header)->getREPO_SOURCES()) + " " + ((HeaderLFS*)header)->getdatadir() + " " + (((HeaderLFS*)header)->getREPO_ORIGIN_PACKAGES_TMPSYS());
+	if(argc > 1)
+	{
+		if(strcmp(argv[0],"--version") == 0 )
+		{
+			cmd = cmd + " " + argv[1];
+			std::cout << "Ejecutando : "<< cmd << "\n";
+		}
+	}
 	//std::cout << "Ejecutando : "<< cmd << "\n";
 	return system (cmd.c_str());
 }

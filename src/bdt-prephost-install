@@ -13,10 +13,10 @@ then
       mkdir $2
 fi
 
-echo ">>>Validacion de versiones.."
-if [ "$LFS_VER" = "8.4"]; then
+echo ">>>Validacion de versiones $LFS_VER .."
+if [ "$LFS_VER"="8.4" ]; then
 	bdt-version-check-8.4
-elif [ "$LFS_VER" = "8.4"]; then
+elif [ "$LFS_VER"="10.0" ]; then
 	bdt-version-check-10.0
 fi
 

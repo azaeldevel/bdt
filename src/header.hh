@@ -24,6 +24,7 @@ public:
 	const std::string& getREPO_ORIGIN_PACKAGES_TMPSYS()const;
 	const std::string& getdatadir()const;
 };
+
 class HeaderLFS : public Header
 {
 protected:
@@ -41,6 +42,7 @@ public:
 	const std::string& getLFS_PART() const;
 	const std::string& getLFS_TGT() const;
 	const octetos::core::Semver& getVersion()const;
+	void setVersion(octetos::core::Semver&);
 };
 
 }
