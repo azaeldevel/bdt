@@ -2,32 +2,39 @@
 #ifndef BDT_COMMANDS
 #define BDT_COMMANDS
 
+#include <octetos/coreutils/shell.hh>
+
 #include "header.hh"
+
 
 namespace bdt
 {
 
+
+
 class Interpret
 {
-private:
+protected:
 	const Header* header;
 	//
-	void bdt(int argc, char* argv[]);
-	void prephost(int argc, char* argv[]);
-	void prephost_install(int argc, char* argv[]);
-	void prephost_remove(int argc, char* argv[]);
-	void prephost_sync(int argc, char* argv[]);
-	void prephost_download(int argc, char* argv[]);
-	void writeParamschar (std::string& argout, int argc, char *argv[]);
+private:
+	int bdt(int argc, char* argv[]);
 	
 public:
 	Interpret(const Header& configure);
-	void execute(int argc, char* argv[]);
+	int execute(int argc, char* argv[]);
 };
 
-class pkmt
+class LFS : public Interpret
 {
-
+	
+public:
+	LFS(const Header& h);
+	int prephost(int argc, char* argv[]);
+	int install(int argc, char* argv[]);
+	int remove(int argc, char* argv[]);
+	int sync(int argc, char* argv[]);
+	int download(int argc, char* argv[]);
 };
 
 

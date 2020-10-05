@@ -9,9 +9,9 @@
 namespace bdt
 {
 
-	const std::string& Header::getREPO_ORIGIN_SOURCES()const
+	const std::string& Header::getREPO_SOURCES()const
 	{
-		return REPO_ORIGIN_SOURCES;
+		return REPO_SOURCES;
 	}
 	const std::string& Header::getREPO_ORIGIN_PACKAGES_TMPSYS()const
 	{
@@ -19,9 +19,7 @@ namespace bdt
 	}
 	Header::Header()
 	{
-		REPO_ORIGIN_PACKAGES_TMPSYS="/home/azael/develop/bdt/src/tmpsys/8.4";
-		REPO_ORIGIN_SOURCES="/home/azael/develop/bdt/src/sources/8.4";
-		datadir = DATADIRBDT;
+		db = "/var/pkmt";
 	}
 	const std::string& Header::getdatadir()const
 	{
@@ -30,7 +28,18 @@ namespace bdt
 
 
 
+
 	
+	const std::string HeaderLFS::getREPO_SOURCES()const
+	{
+		std::string str = REPO_SOURCES + version.toString();
+		return str;
+	}
+	const std::string HeaderLFS::getREPO_ORIGIN_PACKAGES_TMPSYS()const
+	{
+		std::string str = REPO_ORIGIN_PACKAGES_TMPSYS + version.toString();
+		return str;
+	}
 	const std::string& HeaderLFS::getLFS()const
 	{
 		return LFS;
@@ -43,17 +52,38 @@ namespace bdt
 	{
 		return LFS_TGT;
 	}
-	const std::string& HeaderLFS::getPKM()const
+	/*const std::string& HeaderLFS::getPKM()const
 	{
 		return PKM;
-	}
+	}*/
 	HeaderLFS::HeaderLFS()
 	{
+		version.setNumbers(8,4);
+		
+		db = "/var/pkmt/lfs";
+		
+		REPO_ORIGIN_PACKAGES_TMPSYS="/home/azael/develop/repos/pkmt/packages/lfs/";		
+		REPO_SOURCES = db + "/sources/";
+		datadir = DATADIRBDT;
 		LFS="/mnt/lfs";
 		LFS_PART="/dev/sda14";
-		PKM="/home/azael/develop/lfs/8.4/pkm";
+		//PKM="/home/azael/develop/lfs/8.4/pkm";
 		LFS_TGT="x86_64-lfs-linux-gnu";
-		ver.setNumbers(8,4);
+	}
+	HeaderLFS::HeaderLFS(const octetos::core::Semver& v)
+	{
+		version = v;
+		
+		db = "/var/pkmt/lfs";
+		
+		REPO_ORIGIN_PACKAGES_TMPSYS="/home/azael/develop/repos/pkmt/packages/lfs/";		
+		REPO_SOURCES = db + "/sources/";
+		datadir = DATADIRBDT;
+		LFS="/mnt/lfs";
+		LFS_PART="/dev/sda14";
+		//PKM="/home/azael/develop/lfs/8.4/pkm";
+		LFS_TGT="x86_64-lfs-linux-gnu";
+		
 	}
 
 }

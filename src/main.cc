@@ -17,20 +17,24 @@
  */
 
 #include <iostream>
+#include <octetos/core/Version.hh>
+
 
 #include "commands.hh"
 
 int main(int argc, char* argv[])
 {
+	
 	bdt::HeaderLFS confglfs;
 	bdt::Interpret inter(confglfs);
 	try
 	{
-		inter.execute(argc,argv);
+		return inter.execute(argc,argv);
 	}
 	catch(std::string msg)
 	{
 		std::cerr << msg << "\n";
+		return 1;
 	}
 
 	return 0;

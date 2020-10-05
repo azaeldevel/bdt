@@ -11,31 +11,35 @@ namespace bdt
 
 class Header
 {
-private:
+protected:
 	std::string REPO_ORIGIN_PACKAGES_TMPSYS;
-	std::string REPO_ORIGIN_SOURCES;
+	std::string REPO_SOURCES;
 	std::string datadir;
 
+	std::string db;
+	
 public:	
 	Header();
-	const std::string& getREPO_ORIGIN_SOURCES()const;
+	const std::string& getREPO_SOURCES()const;
 	const std::string& getREPO_ORIGIN_PACKAGES_TMPSYS()const;
 	const std::string& getdatadir()const;
 };
 class HeaderLFS : public Header
 {
-private:
+protected:
 	std::string LFS;
 	std::string LFS_PART;
 	std::string LFS_TGT;
-	std::string PKM;
-	octetos::core::Semver ver;
+	octetos::core::Semver version;
+	
 public:
 	HeaderLFS();
-	const std::string& getLFS()const;
-	const std::string& getLFS_PART()const;
-	const std::string& getLFS_TGT()const;
-	const std::string& getPKM()const;
+	HeaderLFS(const octetos::core::Semver& v);
+	const std::string getREPO_SOURCES() const;
+	const std::string getREPO_ORIGIN_PACKAGES_TMPSYS() const;
+	const std::string& getLFS() const;
+	const std::string& getLFS_PART() const;
+	const std::string& getLFS_TGT() const;
 };
 
 }

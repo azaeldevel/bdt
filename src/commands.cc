@@ -4,6 +4,9 @@
 #include <string>
 #include<stdlib.h>
 #include <iostream>
+#include <fstream>
+#include <string>
+
 
 #include "commands.hh"
 
@@ -17,58 +20,52 @@ namespace bdt
 
 
 
-Interpret::Interpret(const Header& header)
+
+LFS::LFS(const Header& h) : Interpret(h)
 {
-	this->header = &header;
+	
 }
-void Interpret::prephost_download(int argc, char* argv[])
+int LFS::download(int argc, char* argv[])
 {
 	std::string cmd = "bdt-prephost-download ";
-	cmd = cmd + (((HeaderLFS*)header)->getREPO_ORIGIN_SOURCES()) ;
-	std::cout << "Ejecutando : "<< cmd << "\n";
-	system (cmd.c_str());
+	cmd = cmd + (((HeaderLFS*)header)->getREPO_SOURCES());
+	//std::cout << "Ejecutando : "<< cmd << "\n";
+	return system (cmd.c_str());
 }
-void Interpret::prephost_sync(int argc, char* argv[])
+int LFS::sync(int argc, char* argv[])
 {
 	std::string cmd = "bdt-prephost-sync ";
-	cmd = cmd + (((HeaderLFS*)header)->getREPO_ORIGIN_PACKAGES_TMPSYS()) + " " + (((HeaderLFS*)header)->getLFS()) + " " + (((HeaderLFS*)header)->getPKM()) ;
+	cmd = cmd + (((HeaderLFS*)header)->getREPO_ORIGIN_PACKAGES_TMPSYS()) + " " + (((HeaderLFS*)header)->getLFS());
 	//std::cout << "Ejecutando : "<< cmd << "\n";
-	system (cmd.c_str());
+	return system (cmd.c_str());
 }
-void Interpret::prephost_remove(int argc, char* argv[])
+int LFS::remove(int argc, char* argv[])
 {
 	std::string cmd = "bdt-prephost-remove ";
 	cmd = cmd + (((HeaderLFS*)header)->getLFS_PART()) + " " + (((HeaderLFS*)header)->getLFS());
 	//std::cout << "Ejecutando : "<< cmd << "\n";
-	system (cmd.c_str());
+	return system (cmd.c_str());
 }
-void Interpret::prephost_install(int argc, char* argv[])
+int LFS::install(int argc, char* argv[])
 {
 	std::string cmd = "bdt-prephost-install ";
-	cmd = cmd + (((HeaderLFS*)header)->getLFS_PART()) + " " + (((HeaderLFS*)header)->getLFS()) + " " + (((HeaderLFS*)header)->getREPO_ORIGIN_SOURCES()) + " " + ((HeaderLFS*)header)->getdatadir() + " " + (((HeaderLFS*)header)->getREPO_ORIGIN_PACKAGES_TMPSYS());
+	cmd = cmd + (((HeaderLFS*)header)->getLFS_PART()) + " " + (((HeaderLFS*)header)->getLFS()) + " " + (((HeaderLFS*)header)->getREPO_SOURCES()) + " " + ((HeaderLFS*)header)->getdatadir() + " " + (((HeaderLFS*)header)->getREPO_ORIGIN_PACKAGES_TMPSYS());
 	//std::cout << "Ejecutando : "<< cmd << "\n";
-	system (cmd.c_str());
+	return system (cmd.c_str());
 }
-void Interpret::writeParamschar (std::string& argout, int argc, char *argv[])
-{
-	for(int i = 0; i < argc; i++)
-	{
-		argout = argout + " " + argv[i];
-	}
-}
-void Interpret::prephost(int argc, char* argv[])
+int LFS::prephost(int argc, char* argv[])
 {
 	if(strcmp(argv[0],"install") == 0)
 	{
-		prephost_install(argc-1,argv+1);
+		return install(argc-1,argv+1);
 	}
 	else if(strcmp(argv[0],"remove") == 0)
 	{
-		prephost_remove(argc-1,argv+1);
+		return remove(argc-1,argv+1);
 	}
 	else if(strcmp(argv[0],"sync") == 0)
 	{
-		prephost_sync(argc-1,argv+1);
+		return sync(argc-1,argv+1);
 	}
 	else
 	{
@@ -77,12 +74,29 @@ void Interpret::prephost(int argc, char* argv[])
 		throw msg;
 	}
 }
-void Interpret::execute(int argc, char* argv[])
+
+
+
+
+
+
+
+
+
+
+
+
+
+Interpret::Interpret(const Header& h)
+{
+	this->header = &h;
+}
+int Interpret::execute(int argc, char* argv[])
 {
 	char* bn = basename(argv[0]);
 	if(strcmp(bn,"bdt") == 0)
 	{
-		bdt(argc-1,argv+1);
+		return bdt(argc-1,argv+1);
 	}
 	else
 	{
@@ -91,11 +105,12 @@ void Interpret::execute(int argc, char* argv[])
 		throw msg;
 	}
 }
-void Interpret::bdt(int argc, char* argv[])
+int Interpret::bdt(int argc, char* argv[])
 {
 	if(strcmp(argv[0],"prephost") == 0)
 	{
-		prephost(argc-1,argv+1);
+		LFS lfs(*header);
+		return lfs.prephost(argc-1,argv+1);
 	}
 	else
 	{

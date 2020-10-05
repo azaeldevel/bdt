@@ -3,4 +3,4 @@ set -e
 
 cp -f $1/* $2/tools/tmpsys/
 
-echo "sichronized repo $3 .."
+echo "sichronized repo $1 .."
