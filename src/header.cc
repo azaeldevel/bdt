@@ -25,9 +25,12 @@ namespace bdt
 	{
 		return datadir;
 	}
-
-
-
+	const std::string Header::getRoot_Repository()const
+	{
+		return rootrepo;
+	}
+	
+	
 	void HeaderLFS::setVersion(octetos::core::Semver& v)
 	{
 		version = v;
@@ -74,6 +77,7 @@ namespace bdt
 		LFS="/mnt/lfs";
 		LFS_PART="/dev/sda14";
 		LFS_TGT="x86_64-lfs-linux-gnu";
+		rootrepo="/home/azael/develop/repos/pkmt";
 	}
 	HeaderLFS::HeaderLFS(octetos::core::Semver& v)
 	{
@@ -87,7 +91,7 @@ namespace bdt
 		LFS="/mnt/lfs";
 		LFS_PART="/dev/sda14";
 		LFS_TGT="x86_64-lfs-linux-gnu";
-		
+		rootrepo="/home/azael/develop/repos/pkmt";
 	}
 
 }

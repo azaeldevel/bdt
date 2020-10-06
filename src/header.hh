@@ -17,6 +17,7 @@ protected:
 	std::string datadir;
 	std::string ORIGIN_PACKAGES_CROSSTOOLCHAIN;
 	std::string db;
+	std::string rootrepo;
 	
 public:	
 	Header();
@@ -24,6 +25,7 @@ public:
 	const std::string& getREPO_ORIGIN_PACKAGES_TMPSYS()const;
 	const std::string& getREPO_ORIGIN_PACKAGES_CROSSTOOLCHAIN()const;
 	const std::string& getdatadir()const;
+	const std::string getRoot_Repository() const;
 };
 
 class HeaderLFS : public Header
