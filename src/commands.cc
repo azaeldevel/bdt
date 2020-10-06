@@ -27,7 +27,12 @@ LFS::LFS(const Header& h) : Interpret(h)
 }
 int LFS::download(int argc, char* argv[])
 {
-	std::string cmd = "bdt-prephost-download ";
+	std::string cmd;
+	#ifdef DEBUG
+	cmd = "bdt-prephost-download ";
+	#else
+	cmd = "./src/bdt-prephost-download ";
+	#endif
 	cmd = cmd + (((HeaderLFS*)header)->getREPO_SOURCES());
 	//std::cout << "Ejecutando : "<< cmd << "\n";
 	return system (cmd.c_str());
