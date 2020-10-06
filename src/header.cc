@@ -82,7 +82,7 @@ namespace bdt
 		db = "/var/pkmt/lfs";
 		
 		REPO_ORIGIN_PACKAGES_TMPSYS="/home/azael/develop/repos/pkmt/packages/lfs/";		
-		REPO_SOURCES = db + "/sources/";
+		REPO_SOURCES = db + "/sources";
 		datadir = DATADIRBDT;
 		LFS="/mnt/lfs";
 		LFS_PART="/dev/sda14";
