@@ -69,13 +69,13 @@ namespace bdt
 		db = "/var/pkmt/lfs";
 		
 		REPO_ORIGIN_PACKAGES_TMPSYS="/home/azael/develop/repos/pkmt/packages/lfs/";		
-		REPO_SOURCES = db + "/sources/";
+		REPO_SOURCES = db + "/sources";
 		datadir = DATADIRBDT;
 		LFS="/mnt/lfs";
 		LFS_PART="/dev/sda14";
 		LFS_TGT="x86_64-lfs-linux-gnu";
 	}
-	HeaderLFS::HeaderLFS(const octetos::core::Semver& v)
+	HeaderLFS::HeaderLFS(octetos::core::Semver& v)
 	{
 		version = v;
 		

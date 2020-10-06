@@ -36,7 +36,7 @@ protected:
 	
 public:
 	HeaderLFS();
-	HeaderLFS(const octetos::core::Semver& v);
+	HeaderLFS(octetos::core::Semver& v);
 	const std::string getREPO_SOURCES() const;
 	const std::string getREPO_ORIGIN_PACKAGES_TMPSYS() const;
 	const std::string& getLFS() const;
