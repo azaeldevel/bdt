@@ -15,13 +15,14 @@ protected:
 	std::string REPO_ORIGIN_PACKAGES_TMPSYS;
 	std::string REPO_SOURCES;
 	std::string datadir;
-
+	std::string ORIGIN_PACKAGES_CROSSTOOLCHAIN;
 	std::string db;
 	
 public:	
 	Header();
 	const std::string& getREPO_SOURCES()const;
 	const std::string& getREPO_ORIGIN_PACKAGES_TMPSYS()const;
+	const std::string& getREPO_ORIGIN_PACKAGES_CROSSTOOLCHAIN()const;
 	const std::string& getdatadir()const;
 };
 

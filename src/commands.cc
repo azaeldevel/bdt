@@ -69,7 +69,7 @@ int LFS::install(int argc, char* argv[])
 		if(strcmp(argv[0],"--version") == 0 )
 		{
 			cmd = cmd + " " + argv[1];
-			std::cout << "Ejecutando : "<< cmd << "\n";
+			//std::cout << "Ejecutando : "<< cmd << "\n";
 		}
 	}
 	//std::cout << "Ejecutando : "<< cmd << "\n";

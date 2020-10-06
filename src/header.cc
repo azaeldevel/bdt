@@ -38,12 +38,12 @@ namespace bdt
 	}
 	const std::string HeaderLFS::getREPO_SOURCES()const
 	{
-		std::string str = REPO_SOURCES + version.toString();
+		std::string str = REPO_SOURCES  + "/" + version.toString();
 		return str;
 	}
 	const std::string HeaderLFS::getREPO_ORIGIN_PACKAGES_TMPSYS()const
 	{
-		std::string str = REPO_ORIGIN_PACKAGES_TMPSYS + version.toString();
+		std::string str = REPO_ORIGIN_PACKAGES_TMPSYS + "/" + version.toString();
 		return str;
 	}
 	const std::string& HeaderLFS::getLFS()const
