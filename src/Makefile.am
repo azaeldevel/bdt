@@ -16,7 +16,7 @@ bin_PROGRAMS = bdt
 
 dist_bin_SCRIPTS = bdt-prephost-download bdt-prephost-formatdisk \
 		bdt-prephost-install bdt-prephost-remove bdt-prephost-sync \
-		bdt-prephost-user
+		bdt-prephost-user bdt-version-check-8.4 bdt-version-check-10.0
 
 
 
