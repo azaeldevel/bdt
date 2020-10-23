@@ -68,7 +68,7 @@ int LFS::install(int argc, char* argv[])
 			((HeaderLFS*)header)->setVersion(ver);
 		}
 	}
-	cmd = cmd + (((HeaderLFS*)header)->getLFS_PART()) + " " + (((HeaderLFS*)header)->getLFS()) + " " + (((HeaderLFS*)header)->getREPO_SOURCES()) + " " + ((HeaderLFS*)header)->getdatadir() + " " + (((HeaderLFS*)header)->getREPO_ORIGIN_PACKAGES_TMPSYS()) + " " + (HeaderLFS*)header)->getRoot_Repository();
+	cmd = cmd + (((HeaderLFS*)header)->getLFS_PART()) + " " + (((HeaderLFS*)header)->getLFS()) + " " + (((HeaderLFS*)header)->getREPO_SOURCES()) + " " + ((HeaderLFS*)header)->getdatadir() + " " + (((HeaderLFS*)header)->getREPO_ORIGIN_PACKAGES_TMPSYS()) + "  " + (((HeaderLFS*)header)->getRoot_Repository());
 	if(argc > 1)
 	{
 		if(strcmp(argv[0],"--version") == 0 )
