@@ -46,7 +46,7 @@ elif [ "$LFS_VER"="10.0" ]; then
 	chmod -v a+wt $2/tools/sources/
 fi
 mkdir $2/tools/tmpsys
-#cp -r $REPO_ORIGIN_PACKAGES_TMPSYS/* $2/tools/tmpsys
+cp -r $REPO_ORIGIN_PACKAGES_TMPSYS/* $2/tools/tmpsys
 
 
 echo ">>>Login in lfs"
