@@ -39,7 +39,7 @@ echo ">>>Moviendo archivos de trabajo."
 mkdir $2/tools/sources
 echo ">>>Validacion de versiones $LFS_VER .."
 if [ "$LFS_VER"="8.4" ]; then
-	cp -r $REPO_ORIGIN_PACKAGES_TMPSYS/$LFS_VER/* $2/tools/sources/
+	cp -r $REPO_ORIGIN_PACKAGES_TMPSYS/* $2/tools/sources/
 	chmod -v a+wt $2/tools/sources/
 elif [ "$LFS_VER"="10.0" ]; then
 	cp -r $REPO_ORIGIN_SOURCES/cross-toolchain/* $2/tools/sources/
