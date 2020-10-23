@@ -6,9 +6,8 @@ LFS=$2
 REPO_ORIGIN_SOURCES=$3
 DATADIR=$4
 REPO_ORIGIN_PACKAGES_TMPSYS=$5
-
-ROOT_REPO=$7
-LFS_VER=$8
+ROOT_REPO=$6
+LFS_VER=$7
 
 if [ ! -d "$2" ]
 then
@@ -23,7 +22,6 @@ elif [ "$LFS_VER"="10.0" ]; then
 fi
 
 echo ">>>Particionando disco.."
-echo ">>>Entrando en modo sudo.."
 bdt-prephost-formatdisk $1 $2
 
 
@@ -35,7 +33,7 @@ mkdir -v $2/tools
 ln -sv $2/tools /
 
 echo ">>>Creando usuario."
-bdt-prephost-user $DATADIR $REPO_ORIGIN_PACKAGES_TMPSYS $LFS_VER
+bdt-prephost-user $DATADIR $ROOT_REPO $LFS_VER
 
 echo ">>>Moviendo archivos de trabajo."
 mkdir $2/tools/sources
