@@ -49,6 +49,9 @@ mkdir $2/tools/tmpsys
 cp -r $ROOT_REPO/packages/lfs/$LFS_VER/* $2/tools/tmpsys
 
 
+chown -v lfs $LFS/tools
+chown -v lfs $LFS/tools/sources
+
 echo ">>>Login in lfs"
 su - lfs
 

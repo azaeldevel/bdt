@@ -18,6 +18,4 @@ else
     chown lfs:lfs /home/lfs/.bashrc
     echo "Introduca la contraseña para el numevo usuario 'lfs'"    
     passwd lfs
-	chown -v lfs $LFS/tools
-	chown -v lfs $LFS/tools/sources
 fi
