@@ -7,9 +7,9 @@ if id "lfs" >/dev/null 2>&1; then
 else
     	groupadd lfs
     	useradd -s /bin/bash -g lfs -m -k /dev/null lfs
-    	cp $1/bash_profile /home/lfs/.bash_profile
+    	cp $2/files/$3/bash_profile /home/lfs/.bash_profile
     	chown lfs:lfs /home/lfs/.bash_profile
-    	cp $1/bashrc /home/lfs/.bashrc
+    	cp $2/files/$3/bashrc /home/lfs/.bashrc
     	chown lfs:lfs /home/lfs/.bashrc
     	echo "Introduca la contraseña para el numevo usuario 'lfs'"    
     	passwd lfs

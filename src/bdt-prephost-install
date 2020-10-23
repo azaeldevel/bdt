@@ -7,6 +7,7 @@ REPO_ORIGIN_SOURCES=$3
 DATADIR=$4
 REPO_ORIGIN_PACKAGES_TMPSYS=$5
 LFS_VER=$6
+ROOT_REPO=$7
 
 if [ ! -d "$2" ]
 then
@@ -33,7 +34,7 @@ mkdir -v $2/tools
 ln -sv $2/tools /
 
 echo ">>>Creando usuario."
-bdt-prephost-user $DATADIR
+bdt-prephost-user $DATADIR $ROOT_REPO $LFS_VER
 
 echo ">>>Moviendo archivos de trabajo."
 mkdir $2/tools/sources
