@@ -1,5 +1,5 @@
 
-AC_INIT(bdt, 0.5.24-alpha, azael.devel@gmail.com)
+AC_INIT(bdt, 0.5.25-alpha, azael.devel@gmail.com)
 
 AC_CONFIG_HEADERS([config.h])
 

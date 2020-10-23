@@ -33,7 +33,7 @@ mkdir -v $2/tools
 ln -sv $2/tools /
 
 echo ">>>Creando usuario."
-bdt-prephost-user $DATADIR $ROOT_REPO $LFS_VER
+bdt-prephost-user $DATADIR $ROOT_REPO $LFS_VER $LFS
 
 echo ">>>Moviendo archivos de trabajo."
 mkdir $2/tools/sources

@@ -4,6 +4,7 @@ set -e
 DATADIR=$1
 ROOT_REPO=$2
 LFS_VER=$3
+LFS=$4
 
 if id "lfs" >/dev/null 2>&1; then
 	echo "El usuario 'lfs' ya existe."
@@ -17,4 +18,6 @@ else
     	chown lfs:lfs /home/lfs/.bashrc
     	echo "Introduca la contraseña para el numevo usuario 'lfs'"    
     	passwd lfs
+	chown -v lfs $LFS/tools
+	chown -v lfs $LFS/sources
 fi
