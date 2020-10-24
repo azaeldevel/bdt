@@ -52,6 +52,11 @@ cp -r $ROOT_REPO/packages/lfs/$LFS_VER/* $2/tools/tmpsys
 chown -v lfs $LFS/tools
 chown -v lfs $LFS/tools/sources
 
+mkdir -p $LFS/etc/pkmt
+chown -v lfs $LFS/etc
+chown -v lfs $LFS/etc/pkmt
+
+
 echo ">>>Login in lfs"
 su - lfs
 
