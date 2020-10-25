@@ -56,9 +56,12 @@ fi
 chown -v lfs $LFS/tools
 chown -v lfs $LFS/tools/sources
 
-mkdir -p $LFS/etc/pkmt
+mkdir -p $LFS/etc/pkmt/tmpsys
+mkdir -p $LFS/etc/pkmt/basic
 chown -v lfs $LFS/etc
 chown -v lfs $LFS/etc/pkmt
+chown -v lfs $LFS/etc/pkmt/tmpsys
+chown -v lfs $LFS/etc/pkmt/basic
 
 echo $LFS_VER >> $LFS/etc/version
 
