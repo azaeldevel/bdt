@@ -59,4 +59,4 @@ chown -v lfs $LFS/etc/pkmt
 
 echo ">>>Login in lfs"
 su - lfs
-
+echo "LFS=$LFS"
