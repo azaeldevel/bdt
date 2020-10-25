@@ -71,7 +71,7 @@ int Interpret::config3(int argc, char* argv[])
 	cmd = "/tools/bin/bash bdt-basichost-directories";
 	shell.execute(cmd);
 	cmd = "/tools/bin/bash bdt-basichost-populate2";
-	
+	shell.execute(cmd);
 	
 	for(auto env : venv)
 	{
@@ -175,9 +175,6 @@ int Interpret::install(int argc, char* argv[])
 		{
 			ver.set(argv[1]);
 			((pkmt::HeaderLFS*)header)->setVersion(ver);
-			std::string cmdver = "echo ";
-			cmdver += ver.toString() + " >> " +  header->getRootDir() + "/etc/version";
-			shell.execute(cmdver);
 		}
 	}
 	cmd = cmd + (((pkmt::HeaderLFS*)header)->getLFS_PART()) \

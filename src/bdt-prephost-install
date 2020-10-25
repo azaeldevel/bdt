@@ -60,6 +60,7 @@ mkdir -p $LFS/etc/pkmt
 chown -v lfs $LFS/etc
 chown -v lfs $LFS/etc/pkmt
 
+echo $LFS_VER >> $LFS/etc/version
 
 echo ">>>Login in lfs"
 su - lfs
