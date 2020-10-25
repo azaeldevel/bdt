@@ -10,7 +10,7 @@ AM_CFLAGS =\
 	 -Wall\
 	 -g
 
-lib_LTLIBRARIES = libbdt.la
+#lib_LTLIBRARIES = libbdt.la
 
 bin_PROGRAMS = bdt
 
@@ -21,26 +21,26 @@ dist_bin_SCRIPTS = bdt-prephost-download bdt-prephost-formatdisk \
 
 
 
-libbdt_la_SOURCES = header.cc 
-libbdt_la_LIBADD = $(OCTETOS_CORE_LIBS) $(OCTETOS_COREUTILS_LIBS)
-libbdt_la_CPPFLAGS = $(OCTETOS_CORE_CFLAGS) $(OCTETOS_COREUTILS_CFLAGS)
+#libbdt_la_SOURCES = header.cc 
+#libbdt_la_LIBADD = $(OCTETOS_CORE_LIBS) $(OCTETOS_COREUTILS_LIBS)
+#libbdt_la_CPPFLAGS = $(OCTETOS_CORE_CFLAGS) $(OCTETOS_COREUTILS_CFLAGS)
 
 
 bdt_SOURCES = \
 	main.cc \
 	commands.cc 
 bdt_LDFLAGS = 
-bdt_LDADD = $(OCTETOS_CORE_LIBS) $(OCTETOS_COREUTILS_LIBS) $(LIBCURL_LIBS) libbdt.la 
-bdt_CPPFLAGS = $(OCTETOS_CORE_CFLAGS) $(OCTETOS_COREUTILS_CFLAGS) $(LIBCURL_CFLAGS)
+bdt_LDADD = $(OCTETOS_CORE_LIBS) $(OCTETOS_COREUTILS_LIBS) $(LIBCURL_LIBS) $(PKMT_LIBS) 
+bdt_CPPFLAGS = $(OCTETOS_CORE_CFLAGS) $(OCTETOS_COREUTILS_CFLAGS) $(LIBCURL_CFLAGS) $(PKMT_CFLAGS)
 
 
-bdt_includedir = $(includedir)/bdt
-bdt_include_HEADERS = header.hh
+#bdt_includedir = $(includedir)/bdt
+#bdt_include_HEADERS = header.hh
 
-pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = bdt.pc
+#pkgconfigdir = $(libdir)/pkgconfig
+#pkgconfig_DATA = bdt.pc
 
-bdtdir = $(datadir)/bdt
-bdt_DATA =  
+#bdtdir = $(datadir)/bdt
+#bdt_DATA =  
 
-EXTRA_DIST = bdt.pc.in
+#EXTRA_DIST = bdt.pc.in

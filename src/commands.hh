@@ -4,7 +4,7 @@
 
 #include <octetos/coreutils/shell.hh>
 
-#include "header.hh"
+#include <pkmt/header.hh>
 
 
 namespace bdt
@@ -15,13 +15,13 @@ namespace bdt
 class Interpret
 {
 protected:
-	const Header* header;
+	const pkmt::Header* header;
 	//
 private:
 	int bdt(int argc, char* argv[]);
 	
 public:
-	Interpret(const Header& configure);
+	Interpret(const pkmt::Header& configure);
 	int execute(int argc, char* argv[]);
 };
 
@@ -29,7 +29,7 @@ class LFS : public Interpret
 {
 	
 public:
-	LFS(const Header& h);
+	LFS(const pkmt::Header& h);
 	int prephost(int argc, char* argv[]);
 	int install(int argc, char* argv[]);
 	int remove(int argc, char* argv[]);

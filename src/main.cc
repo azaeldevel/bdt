@@ -1,7 +1,9 @@
 /*
  * main.cc
  * Copyright (C) 2020 Azael R. <azael.devel@gmail.com>
- * 
+ *
+ * Configuration information from Builder Tool
+ *
  * pkmt is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
  * Free Software Foundation, either version 3 of the License, or
@@ -25,7 +27,7 @@
 int main(int argc, char* argv[])
 {
 	
-	bdt::HeaderLFS confglfs;
+	pkmt::HeaderLFS confglfs;
 	bdt::Interpret inter(confglfs);
 	try
 	{
