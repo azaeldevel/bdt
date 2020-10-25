@@ -41,12 +41,16 @@ echo ">>>Validacion de versiones $LFS_VER .."
 if [ "$LFS_VER"="8.4" ]; then
 	cp -r $ROOT_REPO/sources/lfs/$LFS_VER/* $2/tools/sources/
 	chmod -v a+wt $2/tools/sources/
+	mkdir $2/tools/tmpsys
+	cp -r $ROOT_REPO/packages/lfs/$LFS_VER/tmpsys/* $2/tools/tmpsys
+	mkdir $2/tools/basic
+	cp -r $ROOT_REPO/packages/lfs/$LFS_VER/basic/* $2/tools/basic
+
 elif [ "$LFS_VER"="10.0" ]; then
 	cp -r $REPO_ORIGIN_SOURCES/cross-toolchain/* $2/tools/sources/
 	chmod -v a+wt $2/tools/sources/
 fi
-mkdir $2/tools/tmpsys
-cp -r $ROOT_REPO/packages/lfs/$LFS_VER/tmpsys/* $2/tools/tmpsys
+
 
 
 chown -v lfs $LFS/tools

@@ -1,0 +1,13 @@
+#!/tools/bin/bash
+set -e
+
+cp $REPO/files/8.4/passwd /etc
+cp $REPO/files/8.4/group /etc
+
+exec /tools/bin/bash --login +h
+
+mkdir /var/log/
+touch /var/log/{btmp,lastlog,faillog,wtmp}
+chgrp -v utmp /var/log/lastlog
+chmod -v 664 /var/log/lastlog
+chmod -v 600 /var/log/btmp
