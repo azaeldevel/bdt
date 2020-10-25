@@ -183,7 +183,7 @@ int Interpret::install(int argc, char* argv[])
 	cmd = cmd + (((pkmt::HeaderLFS*)header)->getLFS_PART()) \
 				+ " " + (((pkmt::HeaderLFS*)header)->getLFS()) \
 				+ " " + (((pkmt::HeaderLFS*)header)->getREPO_SOURCES()) \
-				+ " " + ((pkmt::HeaderLFS*)header)->getdatadir() \
+				+ " X " +  \
 				+ " " + (((pkmt::HeaderLFS*)header)->getREPO_ORIGIN_PACKAGES_TMPSYS()) \
 				+ " " + (((pkmt::HeaderLFS*)header)->getRootDir()) \
 				+ " " + ver.toString();

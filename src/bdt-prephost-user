@@ -1,10 +1,10 @@
 #!/bin/bash
 set -e
 
-DATADIR=$1
-ROOT_REPO=$2
-LFS_VER=$3
-LFS=$4
+
+ROOT_REPO=$1
+LFS_VER=$2
+LFS=$3
 
 if id "lfs" >/dev/null 2>&1; then
 	echo "El usuario 'lfs' ya existe."
