@@ -11,21 +11,17 @@ namespace bdt
 
 class Header
 {
-protected:
-	std::string REPO_ORIGIN_PACKAGES_TMPSYS;
-	std::string REPO_SOURCES;
-	std::string datadir;
-	std::string ORIGIN_PACKAGES_CROSSTOOLCHAIN;
-	std::string db;
-	std::string rootrepo;
-	
+private:
+	std::string rootDir;
+	std::string target;
+	octetos::core::Semver version;
+
 public:	
-	Header();
-	const std::string& getREPO_SOURCES()const;
-	const std::string& getREPO_ORIGIN_PACKAGES_TMPSYS()const;
-	const std::string& getREPO_ORIGIN_PACKAGES_CROSSTOOLCHAIN()const;
-	const std::string& getdatadir()const;
-	const std::string getRoot_Repository() const;
+	Header(std::string rootDir,std::string target,octetos::core::Semver version);
+	const std::string getRootDir() const;
+	const std::string& getTarget() const;
+	const octetos::core::Semver& getVersion()const;
+	const octetos::core::Semver& setVersion(const octetos::core::Semver&);
 };
 
 class HeaderLFS : public Header
@@ -34,7 +30,11 @@ protected:
 	std::string LFS;
 	std::string LFS_PART;
 	std::string LFS_TGT;
-	octetos::core::Semver version;
+	std::string REPO_ORIGIN_PACKAGES_TMPSYS;
+	std::string REPO_SOURCES;
+	std::string datadir;
+	std::string ORIGIN_PACKAGES_CROSSTOOLCHAIN;
+	
 	
 public:
 	HeaderLFS();
@@ -43,9 +43,7 @@ public:
 	const std::string getREPO_ORIGIN_PACKAGES_TMPSYS() const;
 	const std::string& getLFS() const;
 	const std::string& getLFS_PART() const;
-	const std::string& getLFS_TGT() const;
-	const octetos::core::Semver& getVersion()const;
-	void setVersion(octetos::core::Semver&);
+	const std::string& getdatadir()const;
 };
 
 }

@@ -73,7 +73,7 @@ int LFS::install(int argc, char* argv[])
 				+ " " + (((HeaderLFS*)header)->getREPO_SOURCES()) \
 				+ " " + ((HeaderLFS*)header)->getdatadir() \
 				+ " " + (((HeaderLFS*)header)->getREPO_ORIGIN_PACKAGES_TMPSYS()) \
-				+ " " + (((HeaderLFS*)header)->getRoot_Repository()) \
+				+ " " + (((HeaderLFS*)header)->getRootDir()) \
 				+ " " + ver.toString();
 	if(argc > 1)
 	{
