@@ -46,7 +46,7 @@ elif [ "$LFS_VER"="10.0" ]; then
 	chmod -v a+wt $2/tools/sources/
 fi
 mkdir $2/tools/tmpsys
-cp -r $ROOT_REPO/packages/lfs/$LFS_VER/* $2/tools/tmpsys
+cp -r $ROOT_REPO/packages/lfs/$LFS_VER/tmpsys/* $2/tools/tmpsys
 
 
 chown -v lfs $LFS/tools
