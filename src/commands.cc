@@ -185,7 +185,7 @@ int Interpret::install(int argc, char* argv[])
 				+ " " + (((pkmt::HeaderLFS*)header)->getREPO_SOURCES()) \
 				+ " X " +  \
 				+ " " + (((pkmt::HeaderLFS*)header)->getREPO_ORIGIN_PACKAGES_TMPSYS()) \
-				+ " " + (((pkmt::HeaderLFS*)header)->getRootDir()) \
+				+ " " + (((pkmt::HeaderLFS*)header)->getRoot_Repository()) \
 				+ " " + ver.toString();
 	if(argc > 1)
 	{
