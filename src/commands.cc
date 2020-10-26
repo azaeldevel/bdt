@@ -213,6 +213,18 @@ int Interpret::prephost(int argc, char* argv[])
 	{
 		return build(argc-1,argv+1);
 	}
+	else if(strcmp(argv[0],"config1") == 0)
+	{
+		return config1(argc-1,argv+1);
+	}
+	else if(strcmp(argv[0],"config2") == 0)
+	{
+		return config2(argc-1,argv+1);
+	}
+	else if(strcmp(argv[0],"config3") == 0)
+	{
+		return config3(argc-1,argv+1);
+	}
 	else
 	{
 		std::string msg = "En prephost, ";
