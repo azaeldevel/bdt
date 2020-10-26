@@ -40,7 +40,7 @@ int LFS::download(int argc, char* argv[])
 int LFS::sync(int argc, char* argv[])
 {
 	std::string cmd = "bdt-prephost-sync ";
-	cmd = cmd + (((pkmt::HeaderLFS*)header)->getREPO_ORIGIN_PACKAGES_TMPSYS()) + " " + (((pkmt::HeaderLFS*)header)->getLFS());
+	cmd = cmd + header->getRoot_Repository() + " " + header->getRootDir();
 	//std::cout << "Ejecutando : "<< cmd << "\n";
 	return system (cmd.c_str());
 }

@@ -1,6 +1,14 @@
 #!/bin/bash
 set -e
 
-cp -f $1/* $2/tools/tmpsys/
+ROOT_REPO=$1
+LFS=$2
+
+if [ "$LFS_VER"="8.4" ]; then
+	cp -r $ROOT_REPO/packages/lfs/$LFS_VER/tmpsys/* $LFS/tools/tmpsys
+	cp -r $ROOT_REPO/packages/lfs/$LFS_VER/basic/* $LFS/tools/basic
+elif [ "$LFS_VER"="10.0" ]; then
+	
+fi
 
 echo "sichronized repo $1 .."
